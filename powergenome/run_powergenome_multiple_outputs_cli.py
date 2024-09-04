@@ -391,7 +391,7 @@ def main(**kwargs):
 
             if args.load:
                 load = make_final_load_curves(pg_engine=pg_engine, settings=_settings)
-                load.columns = "Load_MW_z" + load.columns.map(zone_num_map)
+                load.columns = "Demand_MW_z" + load.columns.map(zone_num_map)
 
                 (
                     reduced_resource_profile,
@@ -403,7 +403,7 @@ def main(**kwargs):
                 write_results_file(
                     df=reduced_load_profile,
                     folder=case_folder,
-                    file_name="Load_data.csv",
+                    file_name="Demand_data.csv",
                     include_index=False,
                     multi_period=args.multi_period,
                 )
