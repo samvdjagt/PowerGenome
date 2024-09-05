@@ -727,6 +727,10 @@ def make_final_load_curves(
     else:
         final_load_curves = load_curves_before_dg
 
+    # There's no demand in ERC_PHDL, resulting in NaN, which causes astype(int) to error out. Set to all zeros here.
+    if "ERC_PHDL" in settings.get("model_regions"):
+        final_load_curves["ERC_PHDL"] = np.zeros(8760)
+
     final_load_curves = final_load_curves.astype(int)
 
     # change order to match model regions
