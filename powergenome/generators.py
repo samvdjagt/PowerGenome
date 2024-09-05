@@ -2646,7 +2646,7 @@ def add_transmission_inv_cost(
         has_total = ~total.isna() & total != 0
         cost[has_total] = total[has_total]
     if cost.isna().any() or (cost == 0).any():
-        logger.warning(
+        logger.info(
             "Transmission investment costs are missing or zero for some resources"
             " and will not be included in the total investment costs."
         )

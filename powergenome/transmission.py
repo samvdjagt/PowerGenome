@@ -134,7 +134,7 @@ def agg_transmission_constraints(
         if transmission_constraints_table.duplicated(
             subset=["region_from", "region_to"]
         ).any():
-            logger.warning(
+            logger.info(
                 "The user transmission capacity table duplicates some values from the "
                 "database. Database values will be discarded in these cases."
             )
