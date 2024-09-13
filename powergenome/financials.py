@@ -167,7 +167,8 @@ def _discrete_inv_cost_calc(
     np.array
         An annual investment cost for each capital cost
     """
-    inv_cost = capex * wacc / (1 - (1 + wacc) ** -cap_rec_years)
+    #inv_cost = capex * wacc / (1 - (1 + wacc) ** -cap_rec_years)
+    inv_cost = capex * wacc * ((1+wacc)**cap_rec_years) / ((1+wacc)**cap_rec_years - 1)
 
     return inv_cost
 
